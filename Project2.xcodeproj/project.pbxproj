@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4572298427F5A545005E2F07 /* chooseprocess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4572298327F5A545005E2F07 /* chooseprocess.swift */; };
+		4572298427F5A545005E2F07 /* gameClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4572298327F5A545005E2F07 /* gameClass.swift */; };
+		4590874F27F8B955001DDE31 /* personnageClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590874E27F8B955001DDE31 /* personnageClass.swift */; };
+		4590875127F8B978001DDE31 /* warriorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875027F8B978001DDE31 /* warriorClass.swift */; };
+		4590875327F8B9A6001DDE31 /* magusClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875227F8B9A6001DDE31 /* magusClass.swift */; };
+		4590875527F8B9C0001DDE31 /* colossusClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875427F8B9C0001DDE31 /* colossusClass.swift */; };
+		4590875727F8B9DA001DDE31 /* dwarfClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875627F8B9DA001DDE31 /* dwarfClass.swift */; };
+		4590875927F8B9F1001DDE31 /* elfClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875827F8B9F1001DDE31 /* elfClass.swift */; };
 		459537B727F37426009F6C1C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459537B627F37426009F6C1C /* main.swift */; };
-		459537BF27F37CE2009F6C1C /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459537BE27F37CE2009F6C1C /* Class.swift */; };
+		459537BF27F37CE2009F6C1C /* giantClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459537BE27F37CE2009F6C1C /* giantClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +31,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4572298327F5A545005E2F07 /* chooseprocess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chooseprocess.swift; sourceTree = "<group>"; };
+		4572298327F5A545005E2F07 /* gameClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameClass.swift; sourceTree = "<group>"; };
+		4590874E27F8B955001DDE31 /* personnageClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personnageClass.swift; sourceTree = "<group>"; };
+		4590875027F8B978001DDE31 /* warriorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = warriorClass.swift; sourceTree = "<group>"; };
+		4590875227F8B9A6001DDE31 /* magusClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = magusClass.swift; sourceTree = "<group>"; };
+		4590875427F8B9C0001DDE31 /* colossusClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colossusClass.swift; sourceTree = "<group>"; };
+		4590875627F8B9DA001DDE31 /* dwarfClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dwarfClass.swift; sourceTree = "<group>"; };
+		4590875827F8B9F1001DDE31 /* elfClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = elfClass.swift; sourceTree = "<group>"; };
 		459537B327F37426009F6C1C /* Project2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Project2; sourceTree = BUILT_PRODUCTS_DIR; };
 		459537B627F37426009F6C1C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		459537BE27F37CE2009F6C1C /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		459537BE27F37CE2009F6C1C /* giantClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = giantClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +54,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4590874D27F8B92E001DDE31 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				4572298327F5A545005E2F07 /* gameClass.swift */,
+				459537BE27F37CE2009F6C1C /* giantClass.swift */,
+				4590874E27F8B955001DDE31 /* personnageClass.swift */,
+				4590875027F8B978001DDE31 /* warriorClass.swift */,
+				4590875227F8B9A6001DDE31 /* magusClass.swift */,
+				4590875427F8B9C0001DDE31 /* colossusClass.swift */,
+				4590875627F8B9DA001DDE31 /* dwarfClass.swift */,
+				4590875827F8B9F1001DDE31 /* elfClass.swift */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
 		459537AA27F37426009F6C1C = {
 			isa = PBXGroup;
 			children = (
@@ -62,8 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				459537B627F37426009F6C1C /* main.swift */,
-				4572298327F5A545005E2F07 /* chooseprocess.swift */,
-				459537BE27F37CE2009F6C1C /* Class.swift */,
+				4590874D27F8B92E001DDE31 /* Class */,
 			);
 			path = Project2;
 			sourceTree = "<group>";
@@ -126,9 +152,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				459537BF27F37CE2009F6C1C /* Class.swift in Sources */,
+				4590875327F8B9A6001DDE31 /* magusClass.swift in Sources */,
+				4590875527F8B9C0001DDE31 /* colossusClass.swift in Sources */,
+				4590875927F8B9F1001DDE31 /* elfClass.swift in Sources */,
+				4590875127F8B978001DDE31 /* warriorClass.swift in Sources */,
+				4590874F27F8B955001DDE31 /* personnageClass.swift in Sources */,
+				459537BF27F37CE2009F6C1C /* giantClass.swift in Sources */,
+				4590875727F8B9DA001DDE31 /* dwarfClass.swift in Sources */,
 				459537B727F37426009F6C1C /* main.swift in Sources */,
-				4572298427F5A545005E2F07 /* chooseprocess.swift in Sources */,
+				4572298427F5A545005E2F07 /* gameClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
