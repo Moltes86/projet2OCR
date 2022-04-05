@@ -1,6 +1,6 @@
 class Warrior: Personnage {
     
     init(name: String){
-        super.init(name: name, health: 50, damage: 30)
+        super.init(name: name, type: "guerrier", health: 50, damage: 30, weapon: "son épée")
     }
 }
