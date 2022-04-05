@@ -23,13 +23,26 @@ class game {
                     if let choosedClass = dictioPerso[choosedType]{
                         let perso = choosedClass
                         print("Choisissez un nom pour votre personnage")
-                        
                         if var choosedName = readLine(){
+                            
+                            while choosedName.isEmpty{
+                                print("le nom de votre personnage doit contenir au moins une lettre")
+                                if let choosedName2 = readLine(){
+                                    choosedName = choosedName2
+                                }
+                            }
                             if team.isEmpty == false{
                                 for member in team{
+                                    
                                     while member.name == choosedName{
                                         print("Ce nom est déja utilisé, veuillez en choisir un autre")
-                                        if let choosedName2 = readLine(){
+                                        if var choosedName2 = readLine(){
+                                            while choosedName2.isEmpty{
+                                                print("le nom de votre personnage doit contenir au moins une lettre")
+                                                if let choosedName3 = readLine(){
+                                                    choosedName2 = choosedName3
+                                                }
+                                            }
                                             choosedName = choosedName2
                                         }
                                     }
