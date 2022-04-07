@@ -1,3 +1,4 @@
+import Darwin
 class game {
     
     let persoChoice = """
@@ -78,7 +79,7 @@ class game {
         return team
     }
     
-    func start() -> ([Personnage], [Personnage]){
+    func start()/* -> ([Personnage], [Personnage])*/{
         
         gamePresentation()
         
@@ -102,6 +103,63 @@ class game {
                         \(member.name) est un \(member.type) qui peut infliger \(member.damage) points de dégât avec \(member.weapon) et qui a \(member.health) points de vie.\n
 """)
         }
-        return (team1, team2)
+//        return (team1, team2)
+//        while team1.isEmpty != false || team2.isEmpty != false{
+            print("Joueur 1 c'est à toi de jouer\n")
+//            fight(team: team1)
+            print("Joueur 2 c'est à ton tour\n")
+//            fight(team: team2)
+//        }
+    }
+    
+    func fight(/*team: [Personnage]*/){
+        // a effacer apres et remettre le parametre team dans la fonction fight, c'était juste pour eviter de repasser par la case choosedprocess. team: [Personnage]
+        let perso1 = Warrior(name: "maurice")
+        let perso2 = Giant(name: "michel")
+        let perso3 = Elf(name: "brian")
+        let team = [perso1, perso2, perso3]
+        var memberChoosed: Personnage
+//        var enemyChoosed: Personnage
+        print("Quel joueur voulez vous envoyer au combat?\n")
+        var i = 1
+        for member in team{
+            print("\(i). \(member.name)")
+            i += 1
+        }
+        if var teamMemberChoice = readLine(){
+            while teamMemberChoice != "1" || teamMemberChoice != "2" || teamMemberChoice != "3"{
+                print("Veuillez choisir un des numéro de la liste\n")
+                    if let teamMemberChoice2 = readLine(){
+                        teamMemberChoice = teamMemberChoice2
+                    }
+            }
+            if let teamNumberChoice = Int(teamMemberChoice){
+                memberChoosed = team[teamNumberChoice-1]
+                print(memberChoosed)
+            }
+//                for member in team{
+//                    while member.name != teamMemberChoice{
+//                        print(member.name, teamMemberChoice)
+//                        print("Veuillez choisir un nom dans la liste\n")
+//                        if let teamMemberChoice2 = readLine(){
+//                            teamMemberChoice = teamMemberChoice2
+//                        }
+//                    }
+//                    memberChoosed = member
+//                    break
+//                }
+        }
+        
+        
+//        if memberChoosed.type == "mage"{
+//            print("Avec ce personnage, vous avez deux possibilitées")
+//            print("""
+//                                        1. Attaquer
+//                                        2. Soigner
+//""")
+//        }
+//        else{
+//
+//        }
     }
 }
