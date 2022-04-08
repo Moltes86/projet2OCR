@@ -16,4 +16,5 @@ class Personnage {
     func makeDamage(victim: Personnage){
         victim.health -= self.damage
     }
+    func healing(friend: Personnage){}
 }
