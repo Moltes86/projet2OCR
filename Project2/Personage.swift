@@ -1,4 +1,4 @@
-class Personnage {
+class Personage {
     
     var name: String
     var type: String
@@ -13,8 +13,8 @@ class Personnage {
         self.damage = damage
         self.weapon = weapon
     }
-    func makeDamage(victim: Personnage){
+    func makeDamage(victim: Personage){
         victim.health -= self.damage
     }
-    func healing(friend: Personnage){}
+    func healing(friend: Personage){}
 }

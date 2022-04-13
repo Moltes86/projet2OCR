@@ -1,5 +1,5 @@
 import Darwin
-class game {
+class Game {
     
     let persoChoice = """
                                                                     1. Warrior : Points de vie 50 Dégats 30
@@ -17,9 +17,9 @@ class game {
     print("                     Vous allez devoir constituer chacun votre équipe de trois en choisissant parmis une liste de personnages et leur donner un nom\n")
     }
     
-    func chooseprocess() -> [Personnage]{
+    func chooseProcess() -> [Personage]{
         
-        var team: [Personnage] = []
+        var team: [Personage] = []
         if team.count == 0{
             print("                                                                 Joueur 1, à vous de commencer :\n")
             print(persoChoice)
@@ -27,7 +27,7 @@ class game {
         while team.count < 6{
             if let choosedType = readLine(){
                 if choosedType == "1" || choosedType == "2" || choosedType == "3" || choosedType == "4" || choosedType == "5" || choosedType == "6" {
-                    let dictioPerso: [String: Personnage] = ["1": Warrior(name: ""), "2": Magus(name: ""), "3": Colossus(name: ""), "4": Dwarf(name: ""), "5": Elf(name: ""), "6": Giant(name: "")]
+                    let dictioPerso: [String: Personage] = ["1": Warrior(name: ""), "2": Magus(name: ""), "3": Colossus(name: ""), "4": Dwarf(name: ""), "5": Elf(name: ""), "6": Giant(name: "")]
                     if let choosedClass = dictioPerso[choosedType]{
                         let perso = choosedClass
                         print("Choisissez un nom pour votre personnage")
@@ -83,7 +83,7 @@ class game {
         
         gamePresentation()
         
-        let team: [Personnage] = chooseprocess()
+        let team: [Personage] = chooseProcess()
         let team1 = Array(team[0...2])
         let team2 = Array(team[3...5])
         print("""
@@ -124,8 +124,8 @@ class game {
         let perso6 = Elf(name: "moustache")
         let team2 = [perso4, perso5, perso6]
         
-        var memberChoosed: Personnage
-        var oppMemberChoosed: Personnage
+        var memberChoosed: Personage
+        var oppMemberChoosed: Personage
         var i = 1
         print("Quel joueur voulez vous envoyer au combat?\n")
         for member in team1{

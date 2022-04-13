@@ -1,8 +1,9 @@
-var newGame = game()
+//var newGame = NewGame()
 //
 //var team = newGame.start()
 //
 //
 //print(team)
 
-newGame.fight()
+//let player1 = newGame.createPlayer()
+let player1 = Player()
