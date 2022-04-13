@@ -2,6 +2,10 @@ import Darwin
 
 class NewGame {
     
+    init(){
+        gamePresentation()
+    }
+    
     func gamePresentation(){
         
     print("                                                         Hello, Bienvenue dans Mortal team combat\n")

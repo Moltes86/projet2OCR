@@ -11,10 +11,12 @@ class Player {
     """
     
     var team: [Personage]
+    var otherTeam: [Personage]
     
-    init(team: [Personage] = []){
+    init(team: [Personage] = [], otherTeam: [Personage] = []){
         
         self.team = team
+        self.otherTeam = otherTeam
         self.team = teamBuilding()
         
     }
@@ -36,13 +38,8 @@ class Player {
             let perso = persoCreation()
             print("Choisissez un nom pour votre personnage")
             if let choosedName = readLine(){
-//                while choosedName.isEmpty{
-//                    print("Le nom de votre personnage doit contenir au moins une lettre")
-//                        if let choosedName2 = readLine(){
-//                            choosedName = choosedName2
-//                        }
-//                }
-                perso.name = checkName(playerTeam: team, choosedName: choosedName)
+                let firstCheckedName = checkName(playerTeam: self.otherTeam , choosedName: choosedName)
+                perso.name = checkName(playerTeam: team, choosedName: firstCheckedName)
             }
             team.append(perso)
         }
@@ -88,17 +85,13 @@ class Player {
                 }
             }
         }
-        for member in playerTeam{
-            while checkedName.isEmpty{
-                print("le nom de votre personnage doit contenir au moins une lettre")
-                if var choosedName2 = readLine(){
-                    while member.name == choosedName2{
-                        print("Ce nom est déja utilisé, veuillez en choisir un autre")
-                        if let choosedName3 = readLine(){
-                            choosedName2 = choosedName3
-                        }
+        else{
+            for member in playerTeam{
+                while member.name == checkedName{
+                    print("Ce nom est déja utilisé, veuillez en choisir un autre")
+                    if let checkedName2 = readLine(){
+                        checkedName = checkedName2
                     }
-                    checkedName = choosedName2
                 }
             }
         }
