@@ -14,93 +14,103 @@ class NewGame {
         
     }
     
-//    let persoChoice = """
-//                                                                    1. Warrior : Points de vie 50 Dégats 30
-//                                                                    2. Magus :   Points de vie 90 Dégats 30
-//                                                                    3. Colossus : Points de vie 40 Dégats 40
-//                                                                    4. Dwarf : Point de vie 30 Dégats 70
-//                                                                    5. Elf : Point de vie 50 Dégats 30
-//                                                                    6. Giant : Point de vie 50 Dégats 50\n
-//    """
-    
-//    func createPlayer() -> Player {
-//
-//        let Player = Player(team: teamBuilding())
-//        return Player
-//
-//    }
-    
-//    func checkName(playerTeam: [Personage], choosedName: String) -> String{
-//        
-//        var checkedName = choosedName
-//        for member in playerTeam{
-//            print(checkedName)
-//            while checkedName.isEmpty{
-//                print("le nom de votre personnage doit contenir au moins une lettre")
-//                if let choosedName2 = readLine(){
-//                    while member.name == choosedName2{
-//                        print("Ce nom est déja utilisé, veuillez en choisir un autre")
-//                        if let choosedName3 = readLine(){
-//                            checkedName = choosedName3
-//                        }
-//                    }
-//                    checkedName = choosedName2
-//                }
+    func start(team1: [Personage], team2: [Personage]){
+        
+        print("""
+                                                                    Vos équipes se compose de la manière suivante :
+
+                                                                                    Joueur 1 :\n
+""")
+        for member in team1{
+            print("""
+                        \(member.name) est un \(member.type) qui peut infliger \(member.damage) points de dégât avec \(member.weapon) et qui a \(member.health) points de vie.\n
+""")
+        }
+        
+        print("                                                                         Joueur 2 : \n")
+        for member in team2{
+            print("""
+                        \(member.name) est un \(member.type) qui peut infliger \(member.damage) points de dégât avec \(member.weapon) et qui a \(member.health) points de vie.\n
+""")
+        }
+        
+//        print("""
+//                                                                    Vos équipes se compose de la manière suivante :
+//""")
+//        var i = 1
+//        while i < 2{
+//            print("""
+//                                                                                        Joueur \(i) :\n
+//    """)
+//            for member in team1/*probleme comment alterner entre team1 et team2 à chaque tour*/{
+//                print("""
+//                    \(member.name) est un \(member.type) qui peut infliger \(member.damage) points de dégât avec \(member.weapon) et qui a \(member.health) points de vie.\n
+//    """)
 //            }
+//            i += 1
 //        }
-//        return checkedName
-//    }
+    }
     
-//    func teamBuilding() -> [Personage]{
-//        
-//        var team: [Personage] = []
-//        print(persoChoice)
-//        while team.count < 3{
-//            if team.count == 0{
-//                print("Veuillez choisir votre premier personnage")
-//            }
-//            else if team.count == 1{
-//                print("Veuillez choisir votre deuxième personnage")
-//            }
-//            else if team.count == 2{
-//                print("Veuillez choisir votre troisième personnage")
-//            }
-//            let perso = persoCreation(otherPlayerTeam: team)
-//            team.append(perso)
-//        }
-//            
-//        return team
-//    }
-    
-//    func persoCreation(otherPlayerTeam: [Personage] = []) -> Personage{
-//        
-//        var perso: Personage?
-//        
-//        while perso == nil{
-//            if let choosedType = readLine(){
-//                switch choosedType{
-//                case "1":
-//                    perso = Warrior(name: "")
-//                case "2":
-//                    perso = Magus(name: "")
-//                case "3":
-//                    perso = Colossus(name: "")
-//                case "4":
-//                    perso = Dwarf(name: "")
-//                case "5":
-//                    perso = Elf(name: "")
-//                case "6":
-//                    perso = Giant(name: "")
-//                default:
-//                    print("Veuillez choisir un chiffre entre 1 et 6")
-//                }
-//            }
-//        }
-//        print("Choisissez un nom pour votre personnage")
-//        if let choosedName = readLine(){
-//            perso!.name = checkName(playerTeam: otherPlayerTeam, choosedName: choosedName)
-//        }
-//        return perso!
-//    }
+    func fight(/*myTeam: [Personnage], opposingTeam: [Personnage]*/){
+        
+        let perso1 = Magus(name: "maurice")
+        let perso2 = Giant(name: "michel")
+        let perso3 = Elf(name: "brian")
+        let myTeam = [perso1, perso2, perso3]
+        
+        let perso4 = Warrior(name: "francois")
+        let perso5 = Giant(name: "rocky")
+        let perso6 = Elf(name: "moustache")
+        let opposingTeam = [perso4, perso5, perso6]
+        
+        var memberChoosed: Personage?
+        var oppMemberChoosed: Personage
+        var action: String = ""
+        
+        var i = 1
+        print("Quel joueur voulez vous envoyer au combat?\n")
+        for member in myTeam{
+            print("\(i). \(member.name)")
+            i += 1
+        }
+        
+        if let teamMemberChoice = readLine(){
+            var teamMemberChoosed: String?
+            while teamMemberChoosed == nil{
+                switch teamMemberChoice{
+                case "1":
+                    let teamMemberIndex = 0
+                    memberChoosed = myTeam[teamMemberIndex]
+                case "2":
+                    let teamMemberIndex = 1
+                    memberChoosed = myTeam[teamMemberIndex]
+                case "3":
+                    let teamMemberIndex = 1
+                    memberChoosed = myTeam[teamMemberIndex]
+                default:
+                    print("Vous devez choisir un numero de la liste")
+                    teamMemberChoosed = nil
+                }
+            }
+        }
+        
+        if memberChoosed!.type == "mage"{
+            print("""
+                  Pour ce personnage, tu as deux choix :
+                              1. attaquer un adversaire
+                              2. soigner un co équipié
+                  """)
+            if var actionChoice = readLine(){
+                while actionChoice != "1" && actionChoice != "2"{
+                    print("Vous devez choisir un numero de la liste")
+                    if let newActionChoice = readLine(){
+                        actionChoice = newActionChoice
+                    }
+                }
+                action = actionChoice
+            }
+        }
+        
+    }
     
 }
