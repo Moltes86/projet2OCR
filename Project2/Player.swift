@@ -12,18 +12,22 @@ class Player {
     
     var team: [Personage]
     var otherTeam: [Personage]
+    let name: String
     
-    init(team: [Personage] = [], otherTeam: [Personage] = []){
+    init(team: [Personage] = [], otherTeam: [Personage] = [], name: String){
         
         self.team = team
         self.otherTeam = otherTeam
-        self.team = teamBuilding()
+        self.name = name
+        self.team = teamBuilding(name: self.name)
         
     }
     
-    func teamBuilding() -> [Personage]{
+    func teamBuilding(name: String) -> [Personage]{
         
+        let name = name
         var team: [Personage] = []
+        print("                                                             \(name), c'est à vous\n\n")
         print(persoChoice)
         while team.count < 3{
             if team.count == 0{

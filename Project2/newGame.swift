@@ -38,9 +38,9 @@ class NewGame {
         print("                                                Les équipes sont constituées, le jeu peut maintenant commencer\n")
         
         while team1.count > 0 || team2.count > 0{
-            print("Joueur 1 c'est à toi de jouer\n")
+            print("Joueur 1 c'est à vous de jouer\n")
             fight(myTeam: team1, opposingTeam: team2)
-            print("Joueur 2 c'est à ton tour\n")
+            print("Joueur 2 c'est à votre tour\n")
             fight(myTeam: team2, opposingTeam: team1)
         }
         
@@ -48,10 +48,9 @@ class NewGame {
     
     func fight(myTeam: [Personage], opposingTeam: [Personage]){
         
-        var action: String = ""
-        
         print("Quel joueur voulez vous envoyer au combat?\n")
         let memberChoosed = chooseMemberTeam(team: myTeam)
+        print(memberChoosed.type)
         
         if memberChoosed.type == "mage"{
             print("""
@@ -67,22 +66,19 @@ class NewGame {
                     }
                 }
                 if actionChoice == "2"{
-                    action = "cure"
-                    print("Quel joueur voulez vous soigner?\n")
+                    print("Quel co équipié voulez vous soigner?\n")
                     let secondMemberChoosed = chooseMemberTeam(team: myTeam)
                     memberChoosed.healing(friend: secondMemberChoosed)
-                    print("\(memberChoosed.name) a soigné \(secondMemberChoosed.name)")
+                    print("\(memberChoosed.name) a soigné \(secondMemberChoosed.name)\n")
                     
                 }
             }
         }
-        else{
-            action = "attack"
-            print("Quel joueur voulez vous attaquer?\n")
-            let oppMemberChoosed = chooseMemberTeam(team: opposingTeam)
-            memberChoosed.makeDamage(victim: oppMemberChoosed)
-            print("\(memberChoosed.name) a attaqué \(oppMemberChoosed.name)")
-        }
+        print("Quel joueur voulez vous attaquer?\n")
+        let oppMemberChoosed = chooseMemberTeam(team: opposingTeam)
+        print(oppMemberChoosed.name)
+        memberChoosed.makeDamage(victim: oppMemberChoosed)
+        print("\(memberChoosed.name) a attaqué \(oppMemberChoosed.name)\n")
         
     }
     
@@ -92,7 +88,7 @@ class NewGame {
         
         var i = 1
         for member in team{
-            print("\(i). \(member.name)")
+            print("\(i). \(member.name) ( \(member.type) )")
             i += 1
         }
         
@@ -102,13 +98,13 @@ class NewGame {
                 switch teamMemberChoice{
                 case "1":
                     teamMemberChoosed = 0
-                    memberChoosed = myTeam[teamMemberChoosed!]
+                    memberChoosed = team[teamMemberChoosed!]
                 case "2":
                     teamMemberChoosed = 1
-                    memberChoosed = myTeam[teamMemberChoosed!]
+                    memberChoosed = team[teamMemberChoosed!]
                 case "3":
                     teamMemberChoosed = 2
-                    memberChoosed = myTeam[teamMemberChoosed!]
+                    memberChoosed = team[teamMemberChoosed!]
                 default:
                     print("Vous devez choisir un numero de la liste")
                     teamMemberChoosed = nil
