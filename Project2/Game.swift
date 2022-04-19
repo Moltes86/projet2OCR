@@ -141,7 +141,7 @@ class Game {
             }
             if let teamNumberChoice = Int(teamMemberChoice){
                 memberChoosed = team1[teamNumberChoice-1]
-                if memberChoosed.type == "mage"{
+                if memberChoosed.type == .Magus{
                     print("""
                           Pour ce personnage, tu as deux choix :
                                       1. attaquer un adversaire

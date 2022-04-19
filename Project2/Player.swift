@@ -23,6 +23,8 @@ class Player {
         
     }
     
+    // ---------- This method build a team and return it on an array ----------
+    
     func teamBuilding(name: String) -> [Personage]{
         
         let name = name
@@ -39,17 +41,31 @@ class Player {
             else if team.count == 2{
                 print("Veuillez choisir votre troisième personnage")
             }
+            
+            // ---------- We creat a new object depend class in the persoCreation method ----------
+            
             let perso = persoCreation()
+            
+            // ---------- When personage created, he have a default name. Here, we add the real name ----------
+            
             print("Choisissez un nom pour votre personnage")
             if let choosedName = readLine(){
+                
+                // ---------- This part is to check if the name is Already used in each team's player using checkName methode ----------
+                
                 let firstCheckedName = checkName(playerTeam: self.otherTeam , choosedName: choosedName)
                 perso.name = checkName(playerTeam: team, choosedName: firstCheckedName)
             }
+            
+            // ---------- Finaly, the personage is added to the team's array ----------
+            
             team.append(perso)
         }
             
         return team
     }
+    
+    // ---------- This method will create a new personage and return it ----------
     
     func persoCreation() -> Personage{
         
@@ -77,6 +93,8 @@ class Player {
         }
         return perso!
     }
+    
+    // ---------- This method check the name on the team passed on parameter and return a checked name ----------
     
     func checkName(playerTeam: [Personage], choosedName: String) -> String{
         

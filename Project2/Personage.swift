@@ -1,12 +1,20 @@
 class Personage {
     
+    enum type{
+        case Giant
+        case Warrior
+        case Magus
+        case Colossus
+        case Dwarf
+        case Elf
+    }
     var name: String
-    var type: String
+    var type = type.Giant
     var health: Int
     var damage: Int
     let weapon: String
     
-    init(name: String, type: String, health: Int, damage: Int, weapon: String){
+    init(name: String, type: Personage.type, health: Int, damage: Int, weapon: String){
         self.name = name
         self.type = type
         self.health = health
