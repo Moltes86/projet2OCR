@@ -10,7 +10,7 @@ class NewGame {
         gamePresentation()
     }
     
-    // ---------- Little game presentation's ----------
+    // ---------- Little game's presentation ----------
     
     func gamePresentation(){
         
@@ -22,37 +22,39 @@ class NewGame {
     
     // ---------- Present each team with all properties ----------
     
-    func teamPresentation(team: [Personage], i: String){
+    func teamPresentation(team: [Personage], Player: Player){
         
             print("""
-                                                                                        Joueur \(i) :\n
+                                                                                        \(Player.name) :\n
     """)
             for member in team{
                 if member.dead == true {
                     print("""
-                          +++ MORT +++ \t\t\t\(member.name) était un \(member.type) qui pouvait infliger \(member.damage) points de dégât avec \(member.weapon) et à qui  il ne reste plus de points de vie.\n
+                          +++ MORT +++ \(member.name) était un \(member.type) qui pouvait infliger \(member.damage) points de dégât avec \(member.weapon) et à qui il ne reste plus de points de vie.\n
                           
                           """)
                     
                 }
-                print("""
-                \(member.name) est un \(member.type) qui peut infliger \(member.damage) points de dégât avec \(member.weapon) et qui a \(member.health) points de vie.\n
-    """)
+                else{
+                    print("""
+                    \(member.name) est un \(member.type) qui peut infliger \(member.damage) points de dégât avec \(member.weapon) et qui a \(member.health) points de vie.\n
+        """)
+                }
             }
         
     }
     
-    // ---------- Start game with two teams in parameters ----------
+    // ---------- Start game with two teams in parameter ----------
     
     func start(team1: inout [Personage], team2: inout [Personage]){
         
         var turnNb = 0
-        var winner = ""
+        var winner = Player2.name
         print("""
                                                                     Vos équipes se compose de la manière suivante :
 """)
-        teamPresentation(team: team1, i: "1")
-        teamPresentation(team: team2, i: "2")
+        teamPresentation(team: team1, Player: Player1)
+        teamPresentation(team: team2, Player: Player2)
         
         print("                                                Les équipes sont constituées, le jeu peut maintenant commencer\n")
         
@@ -64,6 +66,7 @@ class NewGame {
             // ---------- When team2 is empty, he no longer has a choice, the game is over ----------
             
             if team2.filter({$0.dead == false}).count == 0{
+                winner = Player1.name
                 continue
             }
             else{
@@ -72,12 +75,12 @@ class NewGame {
             }
         }
         
-        if team1.filter({$0.dead == false}).isEmpty{
-            winner = "Joueur 2"
-        }
-        else if team2.filter({$0.dead == false}).isEmpty{
-            winner = "Joueur 1"
-        }
+//        if team1.filter({$0.dead == false}).isEmpty{
+//            winner = Player2.name
+//        }
+//        else if team2.filter({$0.dead == false}).isEmpty{
+//            winner = Player1.name
+//        }
         
         // ---------- when a team has no more members, the game is over ----------
         
@@ -86,12 +89,12 @@ class NewGame {
                 Le gagnant est le \(winner)
         """)
         
-        teamPresentation(team: team1, i: "1")
-        teamPresentation(team: team2, i: "2")
+        teamPresentation(team: team1, Player: Player1)
+        teamPresentation(team: team2, Player: Player2)
         
     }
     
-    // ---------- This method take two  teams parameter for the fight and updates every member and team ----------
+    // ---------- This method take two teams in parameter for the fight and updates every member and team ----------
     
     func fight(myTeam: [Personage], opposingTeam: inout [Personage]){
         
@@ -100,7 +103,7 @@ class NewGame {
         // ---------- To choose which member team make action, we need to call the chooseMemberTeam method ----------
         
         let memberChoosed = chooseMemberTeam(team: myTeam.filter({$0.dead == false}))
-        print(memberChoosed.type)
+//        print(memberChoosed.type)
         
         if memberChoosed.type == .Magus{
             print("""
@@ -117,7 +120,7 @@ class NewGame {
                 }
                 if actionChoice == "2"{
                     print("Quel co équipié voulez vous soigner?\n")
-                    let secondMemberChoosed = chooseMemberTeam(team: myTeam)
+                    let secondMemberChoosed = chooseMemberTeam(team: myTeam.filter({$0.dead == false}))
                     memberChoosed.healing(friend: secondMemberChoosed)
                     print("\(memberChoosed.name) a soigné \(secondMemberChoosed.name)\n")
                     
@@ -129,25 +132,24 @@ class NewGame {
         memberChoosed.makeDamage(victim: oppMemberChoosed)
         print("\(memberChoosed.name) a attaqué \(oppMemberChoosed.name)\n")
         
-        // ---------- When health is to zero, member die and automatically remove from the team array ----------
+        // ---------- When health is to zero, member die and automatically have his "dead" property on true ----------
         
         if oppMemberChoosed.health <= 0{
             
             // ---------- We find his index whith his name property ----------
             
             if let indexMember = opposingTeam.firstIndex(where: {$0.name == oppMemberChoosed.name}) {
-//            opposingTeam.remove(at: indexMember)
                 opposingTeam[indexMember].dead = true
             }
         }
         
     }
     
-    // ----------- chooseMemberTeam return the personage ----------
+    // ----------- chooseMemberTeam take team on parameter and return the personage choosed ----------
     
     func chooseMemberTeam(team: [Personage]) -> Personage{
         
-        // ----------- first, it lists the member team ----------
+        // ----------- first, it lists the member team who are not dead ----------
         
         var i = 1
         for member in team{
@@ -155,7 +157,7 @@ class NewGame {
             i += 1
         }
         
-        // ---------- Then, we can choose only the member that exist -----------
+        // ---------- Then, we can choose a member -----------
         
         while true{
             if let choice = readLine(){
@@ -182,39 +184,6 @@ class NewGame {
                 }
             }
         }
-//        var teamMemberChoosed: Int?
-//        while teamMemberChoosed == nil{
-//            if let teamMemberChoice = readLine(){
-//                switch teamMemberChoice{
-//                case "1":
-//                    teamMemberChoosed = 0
-//                    memberChoosed = team[teamMemberChoosed!]
-//                case "2":
-//                    if team.count <= 1{
-//                        print("Vous devez choisir un numero de la liste")
-//                        teamMemberChoosed = nil
-//                    }
-//                    else{
-//                        teamMemberChoosed = 1
-//                        memberChoosed = team[teamMemberChoosed!]
-//                    }
-//                case "3":
-//                    if team.count <= 2{
-//                        print("Vous devez choisir un numero de la liste")
-//                        teamMemberChoosed = nil
-//                    }
-//                    else{
-//                        teamMemberChoosed = 2
-//                        memberChoosed = team[teamMemberChoosed!]
-//                    }
-//                default:
-//                    print("Vous devez choisir un numero de la liste")
-//                    teamMemberChoosed = nil
-//                }
-//            }
-//        }
-//        return memberChoosed!
-        
     }
     
 }

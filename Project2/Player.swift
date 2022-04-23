@@ -19,18 +19,21 @@ class Player {
         self.team = team
         self.otherTeam = otherTeam
         self.name = name
-        self.team = teamBuilding(name: self.name)
+        self.team = teamBuilding(/*name: self.name*/)
         
     }
     
-    // ---------- This method build a team and return it on an array ----------
+    // ---------- This method build a team and return it in array ----------
     
-    func teamBuilding(name: String) -> [Personage]{
+    func teamBuilding(/*name: String*/) -> [Personage]{
         
-        let name = name
+//        let name = name
         var team: [Personage] = []
-        print("                                                             \(name), c'est à vous\n\n")
+        print("                                                             \(self.name), c'est à vous\n\n")
         print(persoChoice)
+        
+        // ---------- we do this as long as the team is not complete ----------
+        
         while team.count < 3{
             if team.count == 0{
                 print("Veuillez choisir votre premier personnage")
@@ -42,7 +45,7 @@ class Player {
                 print("Veuillez choisir votre troisième personnage")
             }
             
-            // ---------- We creat a new object depend class in the persoCreation method ----------
+            // ---------- We create a new object depend class in the persoCreation method ----------
             
             let perso = persoCreation()
             
@@ -51,7 +54,7 @@ class Player {
             print("Choisissez un nom pour votre personnage")
             if let choosedName = readLine(){
                 
-                // ---------- This part is to check if the name is Already used in each team's player using checkName methode ----------
+                // ---------- This part is to check if the name is already used in one of the both teams using checkName method ----------
                 
                 let firstCheckedName = checkName(playerTeam: self.otherTeam , choosedName: choosedName)
                 perso.name = checkName(playerTeam: team, choosedName: firstCheckedName)
@@ -65,7 +68,7 @@ class Player {
         return team
     }
     
-    // ---------- This method will create a new personage and return it ----------
+    // ---------- This method will choose a type of personage and return it ----------
     
     func persoCreation() -> Personage{
         
