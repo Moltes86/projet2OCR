@@ -7,27 +7,28 @@ extension String {
 class Game {
     
     init(){
+        
         gamePresentation()
     }
     
     // ---------- Little game's presentation ----------
     
-    func gamePresentation(){
+    func gamePresentation() {
         
-    print("                                                         Hello, Bienvenue dans Mortal team combat\n")
-    print("                                         Ce jeu se joue à 2, vous allez pouvoir , chacun votre tour, lancer des attaques\n")
-    print("                     Vous allez devoir constituer chacun votre équipe de trois en choisissant parmis une liste de personnages et leur donner un nom\n")
+        print("                                                         Hello, Bienvenue dans Mortal team combat\n")
+        print("                                         Ce jeu se joue à 2, vous allez pouvoir , chacun votre tour, lancer des attaques\n")
+        print("                     Vous allez devoir constituer chacun votre équipe de trois en choisissant parmis une liste de personnages et leur donner un nom\n")
         
     }
     
     // ---------- Present each team with all properties ----------
     
-    func teamPresentation(team: [Personage], player: Player){
+    func teamPresentation(player: Player){
         
             print("""
                                                                                         \(player.name) :\n
             """)
-            for member in team{
+        for member in player.team{
                 if member.dead == true {
                     print("""
                           +++ MORT +++ \(member.name) était un \(member.type) qui pouvait infliger \(member.weapon.damage) points de dégât avec \(member.weapon.name) et à qui il ne reste plus de points de vie.\n
@@ -44,34 +45,38 @@ class Game {
         
     }
     
-    // ---------- Start game with two teams in parameter ----------
+    // ---------- Start game ----------
     
-    func start(team1: inout [Personage], team2: inout [Personage]){
+    func start(){
         
+        // ---------- In this method, we start by creating two personage ----------
+        
+        let Player1 = Player(name: "Joueur 1")
+        let Player2 = Player(otherTeam: Player1.team, name: "Joueur 2")
         var turnNb = 0
         var myWinner: Player?
         print("""
                                                                     Vos équipes se compose de la manière suivante :
         """)
-        teamPresentation(team: team1, player: Player1)
-        teamPresentation(team: team2, player: Player2)
+        teamPresentation(player: Player1)
+        teamPresentation(player: Player2)
         
         print("                                                Les équipes sont constituées, le jeu peut maintenant commencer\n")
         
         while myWinner == nil{
             turnNb += 1
             print("Joueur 1 c'est à vous de jouer\n")
-            fight(myTeam: team1, opposingTeam: &team2)
+            fight(myTeam: Player1.team, opposingTeam: &Player2.team)
             
             // ---------- When team2 is empty, he no longer has a choice, the game is over ----------
             
-            if team2.filter({$0.dead == false}).count == 0{
+            if Player2.team.filter({$0.dead == false}).count == 0{
                 myWinner = Player1
             }
             else{
                 print("Joueur 2 c'est à votre tour\n")
-                fight(myTeam: team2, opposingTeam: &team1)
-                if team1.filter({$0.dead == false}).count == 0{
+                fight(myTeam: Player2.team, opposingTeam: &Player1.team)
+                if Player1.team.filter({$0.dead == false}).count == 0{
                     myWinner = Player2
                 }
             }
@@ -86,8 +91,8 @@ class Game {
             """)
         }
         
-        teamPresentation(team: team1, player: Player1)
-        teamPresentation(team: team2, player: Player2)
+        teamPresentation(player: Player1)
+        teamPresentation(player: Player2)
         
     }
     
