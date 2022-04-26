@@ -1,6 +1,6 @@
 class Dwarf: Personage {
     
     init(name: String){
-        super.init(name: name, type: .Dwarf, health: 30, damage: 70, weapon: "sa massue", dead: false)
+        super.init(name: name, type: .Dwarf, health: 30, weapon: Weapon(name: "massue", damage: 70), dead: false)
     }
 }

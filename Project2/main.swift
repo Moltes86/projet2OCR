@@ -1,4 +1,4 @@
-var newGame = NewGame()
+var newGame = Game()
 
 let Player1 = Player(name: "Joueur 1")
 let Player2 = Player(otherTeam: Player1.team, name: "Joueur 2")

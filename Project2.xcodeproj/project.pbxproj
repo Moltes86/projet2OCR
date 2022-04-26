@@ -7,16 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4572298427F5A545005E2F07 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4572298327F5A545005E2F07 /* Game.swift */; };
 		4590874F27F8B955001DDE31 /* Personage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590874E27F8B955001DDE31 /* Personage.swift */; };
 		4590875127F8B978001DDE31 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875027F8B978001DDE31 /* Warrior.swift */; };
 		4590875327F8B9A6001DDE31 /* Magus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875227F8B9A6001DDE31 /* Magus.swift */; };
-		4590875527F8B9C0001DDE31 /* Colossus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875427F8B9C0001DDE31 /* Colossus.swift */; };
 		4590875727F8B9DA001DDE31 /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875627F8B9DA001DDE31 /* Dwarf.swift */; };
-		4590875927F8B9F1001DDE31 /* Elf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4590875827F8B9F1001DDE31 /* Elf.swift */; };
 		459537B727F37426009F6C1C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459537B627F37426009F6C1C /* main.swift */; };
-		459537BF27F37CE2009F6C1C /* Giant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459537BE27F37CE2009F6C1C /* Giant.swift */; };
-		45C9E67D28057C18005ED424 /* newGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C9E67C28057C18005ED424 /* newGame.swift */; };
+		4595B00128170C830075619B /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4595B00028170C830075619B /* Weapon.swift */; };
+		45C9E67D28057C18005ED424 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C9E67C28057C18005ED424 /* Game.swift */; };
 		45C9E67F28057EB7005ED424 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C9E67E28057EB7005ED424 /* Player.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,17 +30,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4572298327F5A545005E2F07 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4590874E27F8B955001DDE31 /* Personage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personage.swift; sourceTree = "<group>"; };
 		4590875027F8B978001DDE31 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		4590875227F8B9A6001DDE31 /* Magus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magus.swift; sourceTree = "<group>"; };
-		4590875427F8B9C0001DDE31 /* Colossus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colossus.swift; sourceTree = "<group>"; };
 		4590875627F8B9DA001DDE31 /* Dwarf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
-		4590875827F8B9F1001DDE31 /* Elf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elf.swift; sourceTree = "<group>"; };
 		459537B327F37426009F6C1C /* Project2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Project2; sourceTree = BUILT_PRODUCTS_DIR; };
 		459537B627F37426009F6C1C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		459537BE27F37CE2009F6C1C /* Giant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Giant.swift; sourceTree = "<group>"; };
-		45C9E67C28057C18005ED424 /* newGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newGame.swift; sourceTree = "<group>"; };
+		4595B00028170C830075619B /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		45C9E67C28057C18005ED424 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		45C9E67E28057EB7005ED424 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,16 +55,13 @@
 		4590874D27F8B92E001DDE31 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				4572298327F5A545005E2F07 /* Game.swift */,
-				45C9E67C28057C18005ED424 /* newGame.swift */,
+				45C9E67C28057C18005ED424 /* Game.swift */,
 				45C9E67E28057EB7005ED424 /* Player.swift */,
 				4590874E27F8B955001DDE31 /* Personage.swift */,
-				459537BE27F37CE2009F6C1C /* Giant.swift */,
 				4590875027F8B978001DDE31 /* Warrior.swift */,
 				4590875227F8B9A6001DDE31 /* Magus.swift */,
-				4590875427F8B9C0001DDE31 /* Colossus.swift */,
 				4590875627F8B9DA001DDE31 /* Dwarf.swift */,
-				4590875827F8B9F1001DDE31 /* Elf.swift */,
+				4595B00028170C830075619B /* Weapon.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -159,16 +150,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				45C9E67F28057EB7005ED424 /* Player.swift in Sources */,
+				4595B00128170C830075619B /* Weapon.swift in Sources */,
 				4590875327F8B9A6001DDE31 /* Magus.swift in Sources */,
-				4590875527F8B9C0001DDE31 /* Colossus.swift in Sources */,
-				4590875927F8B9F1001DDE31 /* Elf.swift in Sources */,
 				4590875127F8B978001DDE31 /* Warrior.swift in Sources */,
-				45C9E67D28057C18005ED424 /* newGame.swift in Sources */,
+				45C9E67D28057C18005ED424 /* Game.swift in Sources */,
 				4590874F27F8B955001DDE31 /* Personage.swift in Sources */,
-				459537BF27F37CE2009F6C1C /* Giant.swift in Sources */,
 				4590875727F8B9DA001DDE31 /* Dwarf.swift in Sources */,
 				459537B727F37426009F6C1C /* main.swift in Sources */,
-				4572298427F5A545005E2F07 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
