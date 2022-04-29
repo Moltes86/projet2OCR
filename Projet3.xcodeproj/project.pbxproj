@@ -69,7 +69,7 @@
 		459537AA27F37426009F6C1C = {
 			isa = PBXGroup;
 			children = (
-				459537B527F37426009F6C1C /* Project2 */,
+				459537B527F37426009F6C1C /* Projet3 */,
 				459537B427F37426009F6C1C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,13 +82,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		459537B527F37426009F6C1C /* Project2 */ = {
+		459537B527F37426009F6C1C /* Projet3 */ = {
 			isa = PBXGroup;
 			children = (
 				459537B627F37426009F6C1C /* main.swift */,
 				4590874D27F8B92E001DDE31 /* Class */,
 			);
-			path = Project2;
+			path = Projet3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
